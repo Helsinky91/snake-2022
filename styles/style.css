@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&family=Rock+3D&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&family=Rock+3D&family=Shadows+Into+Light&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Palette+Mosaic&family=Rock+3D&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Creepster&family=Indie+Flower&family=Rock+3D&display=swap');
 
 #bakground-page {
     background: url("../images/forest.jpg");
@@ -15,7 +13,6 @@
 
 h1 {
     padding-top: 12px;
-    font-family: 'Palette Mosaic', cursive;
     font-family: 'Rock 3D', cursive;
     color: rgb(5, 63, 27);
     font-size: 60px;
@@ -23,29 +20,66 @@ h1 {
     justify-content: center;
 
 }
-/*
+
 #instructions {
-    font-family: 'Palette Mosaic', cursive;
-    font-family: 'Rock 3D', cursive;
-    font-family: 'Shadows Into Light', cursive;
+  font-family: 'Indie Flower', cursive;
     background: rgba(255, 255, 255, 0.404) ;
     border-radius: 10px;
     color: black;
     font-size: 25px;
     display: flex;
-    width: max-content;
+    width: max-content; 
     justify-content: center;
-  flex-direction: column;
-  align-items: center;
+    flex-direction: column;
+    align-items: center;
   
 }
+
+body button {
+  font-size: 50px;
+  background-color: #0bbd5bf3;
+  color: rgb(80, 11, 11);
+  padding: 10px 30px;
+  border: 0;
+  box-shadow: 0;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  font-family: 'Amatic SC', cursive;
+
+}
+.logo-img {
+  width: 350px;
+}
+
+.arrows-img {
+  width: 150px;
+}
+.loser-img {
+  width: 400px;
+}
+
+#game-over {
+  font-family: 'Indie Flower', cursive;
+    background: rgba(255, 255, 255, 0.404) ;
+    border-radius: 10px;
+    color: black;
+    font-size: 25px;
+    display: flex;
+    width: max-content; 
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  
+}
+/*
+SCORE TEXT IN CANVAS: font-family: 'Creepster', cursive;
 
 canvas {
     border: 5px solid black;
     width: 80%;
     height: 80%
-  } */
-
+  } 
+*/
 
 footer {
     display: flex;

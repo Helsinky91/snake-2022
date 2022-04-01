@@ -1,5 +1,5 @@
 <DOCTYPE html>
-    <html>
+    <html lang="en">
         <head>
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,22 +11,32 @@
             
             <h1>SNAKE 2022</h1>
 
-<!--           <div id="instructions">
-                The snake is hungry, could you help her get some food?
-                </br>
-                Use the arrow keyboard to guide the snake towards the food, 
-                but <strong>BE CAREFUL</strong> not to hit any wall or the snake tail or you might end up <i><em>dead</em></i>
-                <div id="button"> </div>
-            </div> --> 
+         <!--  <div id="instructions" class="game-start">
+                <p>The snake is hungry, could you help her get some food? </p>
+                <img src="./images/welcome-snake.png" alt="snake" class="snake-img" />
+                <p>Use the arrow keyboard to guide the snake towards the food, </br>
+                but <strong>BE CAREFUL</strong> not to hit any wall or the snake tail or you might end up <i><em>dead</em></i></p>
+                <img src="./images/arrows.png" alt="" class="arrows-img" /> </br> 
+                <button id="start-button">START</button>   
+               
+            </div> -->
 
-            <canvas id="snake-canvas">
-
-            </canvas>   
-            <script type="text/javascript" src="./js/index.js"></script> 
+            <div id="game-board"> 
+               <canvas id="canvas" >
+//score would be written here?
+                </canvas>   
+            </div>
+        <!--    <div id="game-over">
+                <img src="./images/loser.png" alt="loser" class="loser-img">
+                <p>Oh no, seems like you hit something... </br> Press space bar to start again.</p>
+            </div> -->
+            
+          <!--  <script type="text/javascript" src="./js/background.js"></script> -->
             <script type="text/javascript" src="./js/snake.js"></script> 
+            <script type="text/javascript" src="./js/index.js"></script> 
+            
         </body>
         <footer>
             Created by Helena Saborit for Project 1 at Ironhack.com
         </footer>
     </html>
-</DOCTYPE>

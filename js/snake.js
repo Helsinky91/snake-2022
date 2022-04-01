@@ -1,6 +1,12 @@
-/*class Snake(){
-   constructor(){}
-
+class SnakeCanvas{
+    constructor(){
+        this.canvas = null;
+        this.ctx = null;
+        
+        this.snake = {w: null, h: null};
+        
+    }
+   //should i make a CLASS for game?
 
 draw(){
      //this should be in another class/js?
@@ -14,4 +20,4 @@ draw(){
  init (){
 
  }
-}*/
+}
