@@ -58,6 +58,14 @@ body button {
   width: 400px;
 }
 
+.score {
+  font-family: 'Creepster', cursive;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  text-shadow: 2px 2px #149c20;
+}
+
 #game-over {
   font-family: 'Indie Flower', cursive;
     background: rgba(255, 255, 255, 0.404) ;
@@ -72,7 +80,6 @@ body button {
   
 }
 /*
-SCORE TEXT IN CANVAS: font-family: 'Creepster', cursive;
 
 canvas {
     border: 5px solid black;
@@ -86,4 +93,5 @@ footer {
     justify-content: center;
     color: white;
     padding-bottom: 20px;
+    font-family: 'Indie Flower', cursive;
 }
