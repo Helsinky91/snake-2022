@@ -11,7 +11,7 @@
             
             <h1>SNAKE 2022</h1>
 
-          <div id="instructions" class="game-start">
+          <div id="instructions" class="game-start" class="hidden" >
                 <p>The snake is hungry, could you help her get some food? </p>
                 <img src="./images/welcome-snake.png" alt="snake" class="snake-img" />
                 <p>Use the arrow keyboard to guide the snake towards the food, </br>
@@ -21,17 +21,17 @@
                
             </div> 
 
-            <div id="game-board"> 
+            <div id="game-board" class="hidden"> 
                 <div class="score">Score: 0</div> 
                <canvas id="canvas" >
                 </canvas>   
             </div>
-           <div id="game-over">
+           <div id="game-over" class="hidden">
                 <img src="./images/you-lost.PNG" alt="loser" class="loser-img">
                 <p>Oh no, seems like you hit something... </br> Press space bar to start again.</p>
             </div> 
             
-         
+            <script type="text/javascript" src="./js/apples.js"></script> 
             <script type="text/javascript" src="./js/snake.js"></script> 
             <script type="text/javascript" src="./js/index.js"></script> 
             

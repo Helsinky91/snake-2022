@@ -87,6 +87,9 @@ canvas {
     height: 80%
   } 
 */
+.hidden {
+display: none;
+}
 
 footer {
     display: flex;
