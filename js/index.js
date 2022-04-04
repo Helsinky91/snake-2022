@@ -70,7 +70,18 @@ class Game {
     }
 
     colisions(){ 
-        
+        //THIS IS NOT WORKINGGGGG
+        for(let i=2; i<this.snake.length; i++) {
+            if(this.snake[i].x === this.snake[0].x && this.snake[i].y === this.snake[0].y){
+                return true
+            }
+        } 
+        const leftWall = this.snake[0].x < 0;
+        const rightWall = this.snake[0].x > canvas.width - 20;
+        const topWall = this.snake[0].y < 0;
+        const bottomWall = this.snake[0].y > canvas.height - 20; 
+    
+        return leftWall || rightWall || topWall || bottomWall
     }
     
    hasEatten(){ 
