@@ -39,7 +39,8 @@ class Game {
             this.drawWalls();
             this.snake.move();
             this.snake.drawSnake();
-              
+            this.apples.draw();
+           // this.colisions()
         }, 100)
     }
 
@@ -66,6 +67,14 @@ class Game {
                     break;
             }
         })
+    }
+
+    colisions(){ 
+        
+    }
+    
+   hasEatten(){ 
+        
     }
 
     gameOver() {

@@ -113,3 +113,32 @@ function drawWalls() {
     ctx.strokeStyle = 'rgba(38, 42, 38, 0.85)'
     ctx.strokeRect(400, 0, canvas.width -400, canvas.height)
 }
+
+
+colisions(){ //THIS IS NOT WORKINGGGGG
+    for(let i=2; i<this.snake.length; i++) {
+      if(this.snake[i].x === this.snake[0].x && this.snake[i].y === this.snake[0].y){
+          return true
+      }
+    } 
+    const leftWall = this.snake[0].x < 0;
+    const rightWall = this.snake[0].x > canvas.width - 20;
+    const topWall = this.snake[0].y < 0;
+    const bottomWall = this.snake[0].y > canvas.height - 20; 
+
+   return leftWall || rightWall || topWall || bottomWall
+}
+
+hasEatten(){ //THIS IS NOT WORKING EITHERRRRRRR
+    if (snake[0].x < this.apples.x + 20 && 
+        this.snake[0].x +20 > this.apples.x && 
+        this.snake[0].y < this.apples.y + 20 && 
+        this.snake[0].y +20 > this.apples.y){
+          return  score += 10
+            console.log("ñam")
+    } 
+    this.snake.push(
+        {x: this.snake[this.snake.length -1].x, 
+         y: this.snake[this.snake.length -1].y});
+    this.apples.draw();
+}

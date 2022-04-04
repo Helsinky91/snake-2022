@@ -17,7 +17,7 @@ class Snake{
         this.downPressed = false*/
         this.snake = [  {x: 200, y: 100},  
             {x: 180, y: 100},  
-            {x: 160, y: 100},  
+            {x: 160, y: 100}, 
            ];            
        
         this.drawSnake()
@@ -43,14 +43,12 @@ class Snake{
         const snakeHead = {x: this.snake[0].x + this.dx, y: this.snake[0].y +this.dy};
         this.snake.unshift(snakeHead);
         this.snake.pop()
-
-
-    }
+    } //add the tail (last elemtn of array) and push it up/rigth...
 
     moveLeft(){
-        if(this.dx !== 20) {
+        if(this.dx !== 20) { //20 is the snake size
             this.dx = -20;
-            this.dy = 0;
+            this.dy = 0; 
         }
     }
     moveRight(){
