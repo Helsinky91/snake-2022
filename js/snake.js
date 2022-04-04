@@ -1,80 +1,77 @@
 class Snake{
-    constructor(canvas, ctx, positionX, positionY, width, height){
+    constructor(canvas, ctx, x, y, width, height){
         this.canvas = canvas;
         this.ctx = ctx;
-        this.snakePosition = {x: positionX, y: positionY}
+       /* this.snakePosition = {x: positionX, y: positionY}
         this.snakeSize = {w: width, h: height}
-        this.snakeSpeed = 5;
-        this.snake = null             
-        this.direction = "right" //the direction should start to the right
-
-        this.draw()
+        this.snakeSpeed = 4; */
+        this.x = x;
+        this.y = y;
+        this.dx = 20; // direction of the X
+        this.dy = 0 // direction of the Y
+        this.width = width;
+        this.height = height;
+      /*  this.rightPressed = false
+        this.leftPressed = false
+        this.upPressed = false
+        this.downPressed = false*/
+        this.snake = [  {x: 200, y: 100},  
+            {x: 180, y: 100},  
+            {x: 160, y: 100},  
+           ];            
+       
+        this.drawSnake()
             }
   
     init (){
          }
 
-    draw(){    
-        //head
-        // body
+    drawSnakeBodyParts(snakePart){    
         ctx.fillStyle= "white";
-        ctx.fillRect(this.snakePosition.x, this.snakePosition.y, 20, 20);  
+        ctx.fillRect(snakePart.x, snakePart.y, 20, 20);  
         ctx.lineWidth = 2;
         ctx.strokeStyle = "black";          
-        ctx.stroke();
+        ctx.strokeRect(snakePart.x, snakePart.y, 20, 20);
 
+    }
+
+    drawSnake(){
+        this.snake.forEach(this.drawSnakeBodyParts)
     }
 
     move(){
-        if(this.direction == "right") {
-            this.moveRight();
-        } else if(this.direction == "left"){
-            this.moveLeft();
-        } else if(this.direction == "up"){
-            this.moveUp();
-        } else if(this.direction == "down") {
-            this.moveDown();
-        } 
-    }
+        const snakeHead = {x: this.snake[0].x + this.dx, y: this.snake[0].y +this.dy};
+        this.snake.unshift(snakeHead);
+        this.snake.pop()
 
-    moveRight(){
-        if (this.snakePosition.x < this.canvas.width - this.snakeSize.w) {
-            this.snakePosition.x += this.snakeSpeed
-            console.log("move right")
-        } else if (this.snakePosition.x === this.canvas.width - 1) {
-            console.log("dead")
-            //DEAD
-        } 
+
     }
 
     moveLeft(){
-        if (this.snakePosition.x > 0) {
-            this.snakePosition.x -= this.snakeSpeed
-            
-          console.log("move left")
-        } else if (this.snakePosition.x === 0) {
-            console.log("dead")
-            //DEAD
-    }}
-
+        if(this.dx !== 20) {
+            this.dx = -20;
+            this.dy = 0;
+        }
+    }
+    moveRight(){
+        if(this.dx !== -20){
+            this.dx = 20;
+            this.dy = 0;
+        }
+    }
     moveUp(){
-        if(this.snakePosition.y < 0){
-            this.snakePosition.y += this.snakeSpeed 
-           
-        console.log("move up")
+        if(this.dy !== 20){
+            this.dy = -20;
+            this.dx = 0;
         }
     }
     moveDown(){
-        if(this.snakePosition.y > this.canvas.height - this.snakeSize.h){
-          this.snakePosition.y += this.snakeSpeed 
-           
-            console.log("move down")
-    } else if (this.snakePosition.y === this.canvas.height) {
-        console.log("dead")
-        //DEAD
-    } 
-     
+        if(this.dy !== -20){
+            this.dy = 20;
+            this.dx = 0;
+        }
     }
+
 }
 
 //movement & colisions 
