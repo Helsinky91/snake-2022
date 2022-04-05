@@ -13,7 +13,8 @@ document.getElementById('start-button').addEventListener('click', () => myGame.s
 class Game {
     constructor() {
         this.snake = null;
-        this.apples = null
+        this.apples = null;
+        this.intervalId = null;
     }
 
     drawWalls() {
@@ -26,7 +27,7 @@ class Game {
         console.log("click");
         gameBoard.classList.remove("hidden");
         instructions.classList.add("hidden")
-        this.snake = new Snake(canvas, ctx, 50, 50, 50, 50);
+        this.snake = new Snake(canvas, ctx, 50, 50, 50, 50, this);
         this.createEventListeners();
         this.apples = new Apples(ctx, canvas);
         this.update();
@@ -34,7 +35,7 @@ class Game {
     }
 
     update() {
-        setInterval(() => {
+       this.intervalId = setInterval(() => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             this.drawWalls();
             this.snake.move();
@@ -49,6 +50,7 @@ class Game {
             switch (e.key) {
                 case "ArrowLeft":
                     e.preventDefault();
+                    
                     this.snake.moveLeft()
                     break;
                 case "ArrowRight":
@@ -69,32 +71,20 @@ class Game {
         })
     }
 
-    colisions(){ 
-        //THIS IS NOT WORKINGGGGG
-        for(let i=2; i<this.snake.length; i++) {
-            if(this.snake[i].x === this.snake[0].x && this.snake[i].y === this.snake[0].y){
-                return true
-            }
-        } 
-        const leftWall = this.snake[0].x < 0;
-        const rightWall = this.snake[0].x > canvas.width - 20;
-        const topWall = this.snake[0].y < 0;
-        const bottomWall = this.snake[0].y > canvas.height - 20; 
-    
-        return leftWall || rightWall || topWall || bottomWall
-    }
-    
+  
    hasEatten(){ 
         
     }
 
     gameOver() {
+        clearInterval(this.intervalId)
         gameBoard.classList.add("hidden")
         gameOver.classList.remove("hidden")
     }
 
 }
-
+//code not working properly
+//document.getElementById('restart-button').addEventListener('click', () => myGame.startGame());
 
 
 

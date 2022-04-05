@@ -1,31 +1,19 @@
 class Snake{
-    constructor(canvas, ctx, x, y, width, height){
+    constructor(canvas, ctx, x, y, width, height, game){
         this.canvas = canvas;
         this.ctx = ctx;
-       /* this.snakePosition = {x: positionX, y: positionY}
-        this.snakeSize = {w: width, h: height}
-        this.snakeSpeed = 4; */
         this.x = x;
         this.y = y;
         this.dx = 20; // direction of the X
         this.dy = 0 // direction of the Y
         this.width = width;
         this.height = height;
-      /*  this.rightPressed = false
-        this.leftPressed = false
-        this.upPressed = false
-        this.downPressed = false*/
-        this.snake = [  {x: 200, y: 100},  
-            {x: 180, y: 100},  
-            {x: 160, y: 100}, 
-           ];            
+        this.snake = [{x: 200, y: 100}, {x: 180, y: 100}, {x: 160, y: 100} ];            
        
-        this.drawSnake()
-            }
+        this.drawSnake();
+        this.game = game;
+    }
   
-    init (){
-         }
-
     drawSnakeBodyParts(snakePart){    
         ctx.fillStyle= "white";
         ctx.fillRect(snakePart.x, snakePart.y, 20, 20);  
@@ -42,14 +30,27 @@ class Snake{
     move(){
         const snakeHead = {x: this.snake[0].x + this.dx, y: this.snake[0].y +this.dy};
         this.snake.unshift(snakeHead);
-        this.snake.pop()
-    } //add the tail (last elemtn of array) and push it up/rigth...
+        this.snake.pop() //add the tail (last elemtn of array) and push it up/rigth...
+        if(snakeHead.x >= this.canvas.width) { //right wall
+            this.game.gameOver();
+        } else if(snakeHead.x <= 0) { //left wall
+            this.game.gameOver();
+        } else if(snakeHead.y >= this.canvas.height){ //bottom wall
+            this.game.gameOver();
+        } else if(snakeHead.y <= 0){ //top wall
+            this.game.gameOver();
+        } else if(snakeHead == this.snake) { //itself?
+            this.game.gameOver();
+        }
+
+    } 
 
     moveLeft(){
         if(this.dx !== 20) { //20 is the snake size
             this.dx = -20;
             this.dy = 0; 
-        }
+        } 
+        
     }
     moveRight(){
         if(this.dx !== -20){
@@ -57,6 +58,7 @@ class Snake{
             this.dy = 0;
         }
     }
+
     moveUp(){
         if(this.dy !== 20){
             this.dy = -20;
