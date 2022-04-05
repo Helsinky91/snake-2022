@@ -8,7 +8,7 @@ class Snake{
         this.dy = 0 // direction of the Y
         this.width = width;
         this.height = height;
-        this.snake = [{x: 200, y: 100}, {x: 180, y: 100}, {x: 160, y: 100} ];            
+        this.bodyParts = [{x: 200, y: 100}, {x: 180, y: 100}, {x: 160, y: 100}];            
        
         this.drawSnake();
         this.game = game;
@@ -24,13 +24,13 @@ class Snake{
     }
 
     drawSnake(){
-        this.snake.forEach(this.drawSnakeBodyParts)
+        this.bodyParts.forEach(this.drawSnakeBodyParts)
     }
 
     move(){
-        const snakeHead = {x: this.snake[0].x + this.dx, y: this.snake[0].y +this.dy};
-        this.snake.unshift(snakeHead);
-        this.snake.pop() //add the tail (last elemtn of array) and push it up/rigth...
+        const snakeHead = {x: this.bodyParts[0].x + this.dx, y: this.bodyParts[0].y +this.dy};
+        this.bodyParts.unshift(snakeHead);
+        this.bodyParts.pop() //add the tail (last elemtn of array) and push it up/rigth...
         if(snakeHead.x >= this.canvas.width) { //right wall
             this.game.gameOver();
         } else if(snakeHead.x <= 0) { //left wall
@@ -39,7 +39,7 @@ class Snake{
             this.game.gameOver();
         } else if(snakeHead.y <= 0){ //top wall
             this.game.gameOver();
-        } else if(snakeHead == this.snake) { //itself?
+        } else if(snakeHead > this.bodyParts.length) { //itself? CURRENTLY NOT WORKING
             this.game.gameOver();
         }
 

@@ -69,7 +69,7 @@ body button {
   width: 400px;
 }
 
-.score {
+#score {
   font-family: 'Creepster', cursive;
   font-size: 40px;
   padding-top: 80;

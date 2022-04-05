@@ -2,15 +2,26 @@ class Apples {
     constructor(ctx, canvas) {
         this.ctx = ctx;
         this.canvas = canvas;
-         this.x = Math.floor(Math.random() * (this.canvas.width) + 20);
-         this.y = Math.floor(Math.random() * (this.canvas.height) + 20);
+       // this.x = Math.floor(Math.random()* (this.canvas.width / 20));
+        
+      
+       // this.y = Math.floor(Math.random()* (this.canvas.height) + 20);
         this.width = 20;
         this.height = 20;
-       // this.x = null;
-       // this.y = null
+        this.x = 0;
+        this.y = 0
+        this.randomApples(); 
     }
 
+    randomApples(){
+        let maxX = (this.canvas.width/20) ;
+        let maxY = (this.canvas.height/20) ;
+        this.x = 20 * (Math.floor(Math.random() * maxX))
+        this.y = 20 * (Math.floor(Math.random() * maxY));
+    }
+ 
     draw(){
+        
         this.ctx.fillStyle= "rgba(196, 41, 41)";
         //this.ctx.fillRect(this.x, this.y, this.width, this.height);   TO MAKE IT SQUARE
         this.ctx.fill();
@@ -18,13 +29,14 @@ class Apples {
         ctx.lineWidth = 2;
         ctx.strokeStyle = "black";          
         ctx.stroke()
+
+        // DO I NEED IT HERE????
+        
+        this.ctx.closePath();
         //ctx.strokeRect(this.x, this.y, this.width, this.height);   TO MAKE OUTLINE OF SQUARE
     }
 
-   /* randomApples(){
-        this.x = Math.floor(Math.random()* (this.canvas.width));
-        this.y = Math.floor(Math.random()* (this.canvas.height));
-    }*/
+    
 
 
 
@@ -35,7 +47,6 @@ class Apples {
 2. veure com genera nou random element
 
     WALLS:
-1. com fa x entendre q ha choca amb la paret
 2 com es fa x entedre q choca amb itself
 
     TRY AGIAN Button

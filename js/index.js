@@ -15,6 +15,7 @@ class Game {
         this.snake = null;
         this.apples = null;
         this.intervalId = null;
+        this.score = 0;
     }
 
     drawWalls() {
@@ -41,7 +42,8 @@ class Game {
             this.snake.move();
             this.snake.drawSnake();
             this.apples.draw();
-           // this.colisions()
+            this.hasEatten();
+           
         }, 100)
     }
 
@@ -72,8 +74,21 @@ class Game {
     }
 
   
-   hasEatten(){ 
-        
+    hasEatten(){ 
+        if (this.snake.bodyParts[0].x == this.apples.x && this.snake.bodyParts[0].y == this.apples.y){
+            console.log("ñam")
+            this.score += 10;         
+            // snake growth: 
+            this.snake.bodyParts.push({x: this.snake.bodyParts[this.snake.bodyParts.length - 1].x, y: this.snake.bodyParts[this.snake.bodyParts.length - 1].y }) 
+            // ctx.closePath();   
+            // DO I NEED IT HERE?????
+            this.apples.randomApples();
+        }
+    
+
+
+     const updateScore = document.getElementById('score');
+     updateScore.innerHTML= `Score : ${this.score}`;
     }
 
     gameOver() {
@@ -82,11 +97,12 @@ class Game {
         gameOver.classList.remove("hidden")
     }
 
+    reset(){
+        //TBD
+    }
 }
 //code not working properly
 //document.getElementById('restart-button').addEventListener('click', () => myGame.startGame());
-
-
 
 const myGame = new Game();
 
