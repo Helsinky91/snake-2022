@@ -8,6 +8,7 @@ const gameBoard = document.getElementById("game-board");
 const gameOver = document.getElementById("game-over");
 window.onload = instructions.classList.remove("hidden");
 
+
 document.getElementById('start-button').addEventListener('click', () => myGame.startGame());
 
 class Game {
@@ -43,16 +44,16 @@ class Game {
             this.snake.drawSnake();
             this.apples.draw();
             this.hasEatten();
-           
+            
         }, 100)
     }
 
     createEventListeners() {
         document.addEventListener('keydown', (e) => {
+            
             switch (e.key) {
                 case "ArrowLeft":
                     e.preventDefault();
-                    
                     this.snake.moveLeft()
                     break;
                 case "ArrowRight":
@@ -67,6 +68,8 @@ class Game {
                     e.preventDefault();
                     this.snake.moveDown()
                     break;
+                case " ":
+                    document.location.reload()
                 default:
                     break;
             }
@@ -79,14 +82,10 @@ class Game {
             console.log("ñam")
             this.score += 10;         
             // snake growth: 
-            this.snake.bodyParts.push({x: this.snake.bodyParts[this.snake.bodyParts.length - 1].x, y: this.snake.bodyParts[this.snake.bodyParts.length - 1].y }) 
-            // ctx.closePath();   
-            // DO I NEED IT HERE?????
+            this.snake.bodyParts.push({x: this.snake.bodyParts[this.snake.bodyParts.length - 1].x, y: this.snake.bodyParts[this.snake.bodyParts.length - 1].y })  
             this.apples.randomApples();
         }
     
-
-
      const updateScore = document.getElementById('score');
      updateScore.innerHTML= `Score : ${this.score}`;
     }
@@ -97,21 +96,13 @@ class Game {
         gameOver.classList.remove("hidden")
     }
 
-    reset(){
-        //TBD
-    }
 }
 //code not working properly
 //document.getElementById('restart-button').addEventListener('click', () => myGame.startGame());
+//console.log("clack")
 
 const myGame = new Game();
 
 
 
 
-
-/*
-function createPlayer() {
-  const snake = new SnakeCanvas(this.ctx, 50, 50, 50, 50)
-
-} */

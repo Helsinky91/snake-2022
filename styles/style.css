@@ -38,7 +38,7 @@ h1 {
   border-radius: 10px;
   color: black;
   font-size: 25px;
-  text-align: justify;
+  text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -85,6 +85,7 @@ body button {
   border-radius: 10px;
   color: black;
   font-size: 25px;
+  text-align: center; 
   display: flex;
   justify-content:flex-start;
   flex-direction: column;
