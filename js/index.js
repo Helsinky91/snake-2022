@@ -94,6 +94,8 @@ class Game {
         clearInterval(this.intervalId)
         gameBoard.classList.add("hidden")
         gameOver.classList.remove("hidden")
+        const totalScore = document.getElementById('total-scored');
+        totalScore.innerHTML= `You scored ${this.score} in total`;
     }
 
 }
