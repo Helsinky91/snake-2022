@@ -8,12 +8,10 @@
             <link rel="stylesheet" href="../snake-2022/styles/style.css">
         </head>
         <body id="bakground-page">
-            
             <h1>SNAKE 2022</h1>
             <div id="game-board" class="hidden"> 
                 <div id="score">Score: </div> 
-               <canvas id="canvas" width="1000" height="750" >
-                </canvas>   
+                <canvas id="canvas" width="1000" height="550" ></canvas>   
             </div>
 
           <div id="instructions" class="game-start hidden" >
@@ -21,19 +19,15 @@
                 <img src="./images/welcome-snake.png" alt="snake" class="snake-img" />
                 <p>Use the arrow keyboard to guide the snake towards the food, </br>
                 but <strong>BE CAREFUL</strong> not to hit any wall or the snake tail or you might end up <i><em>dead</em></i></p>
-                <img src="./images/arrows.png" alt="" class="arrows-img" /> </br> 
-                <button id="start-button">START</button>   
-               
-            </div> 
+               <!-- <img src="./images/arrows.png" alt="" class="arrows-img" /> </br> -->
+                <button id="start-button">START</button>               
+           </div> 
             
            <div id="game-over" class="hidden">
                 <p id="total-scored">You scored X in total</p>    
                 <img src="./images/you-lost3.png" alt="loser" class="loser-img">
                 <p>Oh no, seems like you hit something...
-                </br>Press <strong style="color:rgb(22, 155, 10)">spacebar</strong> to try again.
-                </p>
-                
-                <!--<button id="restart-button">TRY AGAIN</button> -->
+                </br>Press <strong style="color:rgb(22, 155, 10)">spacebar</strong> to try again.</p>
             </div> 
             
             <script type="text/javascript" src="./js/apples.js"></script> 

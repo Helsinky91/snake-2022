@@ -33,7 +33,8 @@ class Game {
         this.createEventListeners();
         this.apples = new Apples(ctx, canvas);
         this.update();
-        
+        music = new Audio ('/Assets/Music/Start.mp3');
+window.onload = music.play();
     }
 
     update() {

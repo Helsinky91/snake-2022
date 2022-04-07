@@ -8,8 +8,7 @@ class Snake{
         this.dy = 0 // direction of the Y
         this.width = width;
         this.height = height;
-        this.bodyParts = [{x: 200, y: 100}, {x: 180, y: 100}, {x: 160, y: 100}];            
-       
+        this.bodyParts = [{x: 200, y: 100}, {x: 180, y: 100}, {x: 160, y: 100}];
         this.drawSnake();
         this.game = game;
     }
@@ -20,7 +19,6 @@ class Snake{
         ctx.lineWidth = 2;
         ctx.strokeStyle = "black";          
         ctx.strokeRect(snakePart.x, snakePart.y, 20, 20);
-
     }
 
     drawSnake(){
