@@ -31,13 +31,13 @@ class Snake{
         this.bodyParts.pop() //add the tail (last elemtn of array) and push it up/rigth...
         if(snakeHead.x >= this.canvas.width) { //right wall
             this.game.gameOver();
-        } else if(snakeHead.x <= 0) { //left wall
+        } else if((snakeHead.x + 20) <= 0) { //left wall
             this.game.gameOver();
         } else if(snakeHead.y >= this.canvas.height){ //bottom wall
             this.game.gameOver();
-        } else if(snakeHead.y <= 0){ //top wall
+        } else if((snakeHead.y + 20) <= 0){ //top wall
             this.game.gameOver();
-        } else if(snakeHead > this.bodyParts.length) { //itself? CURRENTLY NOT WORKING
+        } else if(this.bodyParts.x < this.bodyParts.y) { //itself? CURRENTLY NOT WORKING
             this.game.gameOver();
         }
 

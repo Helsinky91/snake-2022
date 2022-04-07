@@ -12,7 +12,7 @@ window.onload = instructions.classList.remove("hidden");
 document.getElementById('start-button').addEventListener('click', () => myGame.startGame());
 
 class Game {
-    constructor() {
+    constructor(width, height) {
         this.snake = null;
         this.apples = null;
         this.intervalId = null;
@@ -85,6 +85,7 @@ window.onload = music.play();
             // snake growth: 
             this.snake.bodyParts.push({x: this.snake.bodyParts[this.snake.bodyParts.length - 1].x, y: this.snake.bodyParts[this.snake.bodyParts.length - 1].y })  
             this.apples.randomApples();
+            
         }
     
      const updateScore = document.getElementById('score');
@@ -100,9 +101,6 @@ window.onload = music.play();
     }
 
 }
-//code not working properly
-//document.getElementById('restart-button').addEventListener('click', () => myGame.startGame());
-//console.log("clack")
 
 const myGame = new Game();
 

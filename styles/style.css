@@ -106,9 +106,6 @@ body button {
   visibility: visible
 }
 
-.total-scored {
-  font-weight: 200;
-}
 
 footer {
   display: flex;
