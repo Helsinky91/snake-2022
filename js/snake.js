@@ -72,7 +72,3 @@ class Snake{
 
 }
 
-//movement & colisions 
-// new class to the body of the snake
-// rewrite code of movement to add the tail (last elemtn of array) and push it up/rigth...
-// dnt move left to right. 

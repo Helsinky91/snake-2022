@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Creepster&family=Indie+Flower&family=Rock+3D&display=swap');
 
-body {
-  max-height: 800; /* WHY IS NOT WORKING */ 
-}
-
 #bakground-page {
   background: url("../images/forest.jpg");
   background-position: center;

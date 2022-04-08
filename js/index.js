@@ -1,5 +1,3 @@
-
-
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -8,11 +6,10 @@ const gameBoard = document.getElementById("game-board");
 const gameOver = document.getElementById("game-over");
 window.onload = instructions.classList.remove("hidden");
 
-
 document.getElementById('start-button').addEventListener('click', () => myGame.startGame());
 
 class Game {
-    constructor(width, height) {
+    constructor() {
         this.snake = null;
         this.apples = null;
         this.intervalId = null;
@@ -33,8 +30,6 @@ class Game {
         this.createEventListeners();
         this.apples = new Apples(ctx, canvas);
         this.update();
-        music = new Audio ('/Assets/Music/Start.mp3');
-window.onload = music.play();
     }
 
     update() {
@@ -50,8 +45,7 @@ window.onload = music.play();
     }
 
     createEventListeners() {
-        document.addEventListener('keydown', (e) => {
-            
+        document.addEventListener('keydown', (e) => { 
             switch (e.key) {
                 case "ArrowLeft":
                     e.preventDefault();
@@ -76,16 +70,15 @@ window.onload = music.play();
             }
         })
     }
-
   
     hasEatten(){ 
         if (this.snake.bodyParts[0].x == this.apples.x && this.snake.bodyParts[0].y == this.apples.y){
             console.log("ñam")
             this.score += 10;         
             // snake growth: 
-            this.snake.bodyParts.push({x: this.snake.bodyParts[this.snake.bodyParts.length - 1].x, y: this.snake.bodyParts[this.snake.bodyParts.length - 1].y })  
+            this.snake.bodyParts.push({x: this.snake.bodyParts[this.snake.bodyParts.length - 1].x, 
+                y: this.snake.bodyParts[this.snake.bodyParts.length - 1].y })  
             this.apples.randomApples();
-            
         }
     
      const updateScore = document.getElementById('score');
@@ -96,6 +89,7 @@ window.onload = music.play();
         clearInterval(this.intervalId)
         gameBoard.classList.add("hidden")
         gameOver.classList.remove("hidden")
+
         const totalScore = document.getElementById('total-scored');
         totalScore.innerHTML= `You scored ${this.score} in total`;
     }
